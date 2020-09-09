@@ -1,0 +1,19 @@
+logging:
+  level:
+    root: info
+
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:12:///
+    username: radarcovid
+    password: radarcovid
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+    initialization-mode: always
+
+  jpa:
+    properties:
+      hibernate:
+        default_schema: configuration
+
+application:
+  log.enabled: false

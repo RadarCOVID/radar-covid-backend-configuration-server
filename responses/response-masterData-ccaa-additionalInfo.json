@@ -1,0 +1,154 @@
+[
+    {
+        "id": "ES-AN",
+        "description": "Andalucía",
+        "phone": "+34 000 000 000",
+        "email": "direccion@email.com",
+        "web": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ciudadania/consejos-de-salud/nuevo-coronavirus-informacion-sobre-la-alerta/app-radar-covid",
+        "webName": "Radar COVID – Andalucía"
+    },
+    {
+        "id": "ES-AR",
+        "description": "Aragón",
+        "phone": "+34 000 000 000",
+        "email": "direccion@email.com",
+        "web": "https://www.saludinforma.es/portalsi/web/salud/radar-covid",
+        "webName": "Radar COVID – Aragón"
+    },
+    {
+        "id": "ES-CN",
+        "description": "Canarias",
+        "phone": "+34 000 000 000",
+        "email": "direccion@email.com",
+        "web": "https://www.gobiernodecanarias.org/principal/coronavirus/Radarcovid",
+        "webName": "Radar COVID – Canarias"
+    },
+    {
+        "id": "ES-CB",
+        "description": "Cantabria",
+        "phone": "+34 000 000 000",
+        "email": "direccion@email.com",
+        "web": "https://www.scsalud.es/coronavirus",
+        "webName": "Radar COVID – Cantabria"
+    },
+    {
+        "id": "ES-CM",
+        "description": "Castilla-La Mancha",
+        "phone": "+34 000 000 000",
+        "email": "direccion@email.com",
+        "web": "https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/telefonos.htm",
+        "webName": "Teléfonos de información"
+    },
+    {
+        "id": "ES-CL",
+        "description": "Castilla y León",
+        "phone": "+34 000 000 000",
+        "email": "direccion@email.com",
+        "web": "https://www.saludcastillayleon.es/es/radar-covid",
+        "webName": "Radar COVID – Castilla y León"
+    },
+    {
+        "id": "ES-CT",
+        "description": "Cataluña",
+        "phone": "+34 000 000 000",
+        "email": "direccion@email.com",
+        "web": "https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/telefonos.htm",
+        "webName": "Teléfonos de información"
+    },
+    {
+        "id": "ES-CE",
+        "description": "Ceuta",
+        "phone": "+34 000 000 000",
+        "email": "direccion@email.com",
+        "web": "https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/telefonos.htm",
+        "webName": "Teléfonos de información"
+    },
+    {
+        "id": "ES-MD",
+        "description": "Comunidad de Madrid",
+        "phone": "+34 000 000 000",
+        "email": "direccion@email.com",
+        "web": "https://www.comunidad.madrid/servicios/salud/2019-nuevo-coronavirus",
+        "webName": "Radar COVID – Madrid"
+    },
+    {
+        "id": "ES-NC",
+        "description": "Comunidad Foral Navarra",
+        "phone": "+34 000 000 000",
+        "email": "direccion@email.com",
+        "web": "https://administracionelectronica.navarra.es/CarpetaSalud/info.aspx#/radar-covid",
+        "webName": "Radar COVID – Comunidad Foral Navarra"
+    },
+    {
+        "id": "ES-VC",
+        "description": "Comunidad Valenciana",
+        "phone": "+34 000 000 000",
+        "email": "direccion@email.com",
+        "web": "https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/telefonos.htm",
+        "webName": "Teléfonos de información"
+    },
+    {
+        "id": "ES-EX",
+        "description": "Extremadura",
+        "phone": "+34 000 000 000",
+        "email": "direccion@email.com",
+        "web": "https://saludextremadura.ses.es/web/alertacontacto",
+        "webName": "Radar COVID – Extremadura"
+    },
+    {
+        "id": "ES-GA",
+        "description": "Galicia",
+        "phone": "+34 000 000 000",
+        "email": "direccion@email.com",
+        "web": "https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/telefonos.htm",
+        "webName": "Teléfonos de información"
+    },
+    {
+        "id": "ES-IB",
+        "description": "Islas Baleares",
+        "phone": "+34 000 000 000",
+        "email": "direccion@email.com",
+        "web": "http://www.caib.es/sites/radarcovid/instruccions_en_cas_de_contacte/",
+        "webName": "Radar COVID – Islas Baleares"
+    },
+    {
+        "id": "ES-RI",
+        "description": "La Rioja",
+        "phone": "+34 000 000 000",
+        "email": "direccion@email.com",
+        "web": "https://www.riojasalud.es/radarcovid",
+        "webName": "Radar COVID – La Rioja"
+    },
+    {
+        "id": "ES-ML",
+        "description": "Melilla",
+        "phone": "+34 000 000 000",
+        "email": "direccion@email.com",
+        "web": "https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/telefonos.htm",
+        "webName": "Teléfonos de información"
+    },
+    {
+        "id": "ES-PV",
+        "description": "País Vasco",
+        "phone": "+34 000 000 000",
+        "email": "direccion@email.com",
+        "web": "https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/telefonos.htm",
+        "webName": "Teléfonos de información"
+    },
+    {
+        "id": "ES-AS",
+        "description": "Principado de Asturias",
+        "phone": "+34 000 000 000",
+        "email": "direccion@email.com",
+        "web": "https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/telefonos.htm",
+        "webName": "Teléfonos de información"
+    },
+    {
+        "id": "ES-MC",
+        "description": "Región de Murcia",
+        "phone": "+34 000 000 000",
+        "email": "direccion@email.com",
+        "web": "https://murciasalud.es/radarcovid",
+        "webName": "Radar COVID – Murcia"
+    }
+]

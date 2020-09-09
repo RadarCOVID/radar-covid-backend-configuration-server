@@ -1,0 +1,87 @@
+{
+  "responseDate": 1599574886241,
+  "exposureConfiguration": {
+    "transmission": {
+      "riskLevelValue1": 0,
+      "riskLevelValue2": 0,
+      "riskLevelValue3": 0,
+      "riskLevelValue4": 0,
+      "riskLevelValue5": 0,
+      "riskLevelValue6": 0,
+      "riskLevelValue7": 0,
+      "riskLevelValue8": 0,
+      "riskLevelWeight": 0.0
+    },
+    "duration": {
+      "riskLevelValue1": 0,
+      "riskLevelValue2": 0,
+      "riskLevelValue3": 0,
+      "riskLevelValue4": 0,
+      "riskLevelValue5": 0,
+      "riskLevelValue6": 0,
+      "riskLevelValue7": 0,
+      "riskLevelValue8": 0,
+      "riskLevelWeight": 0.0
+    },
+    "days": {
+      "riskLevelValue1": 0,
+      "riskLevelValue2": 0,
+      "riskLevelValue3": 0,
+      "riskLevelValue4": 0,
+      "riskLevelValue5": 0,
+      "riskLevelValue6": 0,
+      "riskLevelValue7": 0,
+      "riskLevelValue8": 0,
+      "riskLevelWeight": 0.0
+    },
+    "attenuation": {
+      "riskLevelValue1": 1,
+      "riskLevelValue2": 1,
+      "riskLevelValue3": 1,
+      "riskLevelValue4": 1,
+      "riskLevelValue5": 1,
+      "riskLevelValue6": 1,
+      "riskLevelValue7": 1,
+      "riskLevelValue8": 1,
+      "riskLevelWeight": 100.0
+    }
+  },
+  "minRiskScore": 1,
+  "minDurationForExposure": 15,
+  "riskScoreClassification": [
+    {
+      "label": "LOW",
+      "minValue": 0,
+      "maxValue": 4095
+    },
+    {
+      "label": "HIGH",
+      "minValue": 4096,
+      "maxValue": 4096
+    }
+  ],
+  "attenuationDurationThresholds": {
+    "low": 55,
+    "medium": 74
+  },
+  "attenuationFactor": {
+    "low": 1.0,
+    "medium": 0.5
+  },
+  "applicationVersion": {
+    "android": {
+      "version": "1.0.1",
+      "compilation": 3,
+      "bundleUrl": "https://play.google.com/store/apps/details?id=es.gob.radarcovid"
+    },
+    "ios": {
+      "version": "1.0.0",
+      "compilation": 0,
+      "bundleUrl": "itms://itunes.apple.com/app/id1520443509"
+    }
+  },
+  "timeBetweenStates": {
+    "highRiskToLowRisk": 1440,
+    "infectedToHealthy": 4320
+  }
+}

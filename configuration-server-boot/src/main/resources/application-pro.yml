@@ -1,0 +1,10 @@
+springdoc:
+  api-docs.enabled: false
+  swagger-ui.enabled: false
+
+application.log.enabled: false
+
+logging:
+  level:
+    root: error
+    es.gob.radarcovid: info

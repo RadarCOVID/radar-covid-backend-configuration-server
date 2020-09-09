@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+
+  backend:
+    image: radarcovid/configuration
+    build: ./configuration-server-boot/target/docker
+    environment:
+      DATABASE_URL: jdbc:postgresql://postgres:5432/RADARCOVID?schema=configuration
+      DATABASE_USER: radarcovid 
+      DATABASE_PSW: radarcovid
+      DATABASE_SCHEMA: configuration
+    ports:
+      - 8080:8080
+    networks:
+      service:
+      persistence:
+      
+  postgres:
+    image: postgres:12-alpine
+    environment:
+      TZ: Europe/Madrid
+      POSTGRES_DB: RADARCOVID
+      POSTGRES_USER: radarcovid
+      POSTGRES_PASSWORD: radarcovid
+      POSTGRES_SCHEMA: public
+    volumes:
+      - ./sql/:/docker-entrypoint-initdb.d/
+    ports:
+      - 5432:5432
+    networks:
+      persistence:
+        aliases:
+          - postgres
+
+networks:
+  service:
+  persistence:

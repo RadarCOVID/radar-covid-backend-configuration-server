@@ -1,0 +1,314 @@
+openapi: 3.0.1
+info:
+  title: "es.gob.radarcovid:configuration-server-boot"
+  description: Configuraciones
+  termsOfService: "http://sedia.com/"
+  version: 1.0.0-SNAPSHOT
+servers:
+- url: "http://localhost:8080/v1"
+  description: Generated server url
+paths:
+  /token/uuid:
+    get:
+      tags:
+      - token
+      summary: Get application UUID token
+      description: Get application UUID token
+      operationId: getUuid
+      responses:
+        "400":
+          description: error
+        "500":
+          description: error message
+        "200":
+          description: successful operation
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/UuidDto"
+  /masterData/ccaa:
+    get:
+      tags:
+      - masterData
+      summary: Get availables autonomous communities
+      description: Get availables autonomous communities
+      operationId: getCcaa
+      parameters:
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+          default: es-ES
+      - name: additionalInfo
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        "400":
+          description: error
+        "500":
+          description: error
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CcaaKeyValueDto"
+  /masterData/locales:
+    get:
+      tags:
+      - masterData
+      summary: Get availables locales
+      description: Get availables locales
+      operationId: getLocales
+      parameters:
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+          default: es-ES
+      responses:
+        "400":
+          description: error
+        "500":
+          description: error
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/KeyValueDto"
+  /settings:
+    get:
+      tags:
+      - settings
+      summary: Get application settings
+      description: Get application settings
+      operationId: getSettings
+      responses:
+        "400":
+          description: error
+        "500":
+          description: error
+        "200":
+          description: successful operation
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SettingsDto"
+  /texts:
+    get:
+      tags:
+      - texts
+      summary: Get texts by locale and CCAA
+      description: Get texts by locale and CCAA
+      operationId: getTexts
+      parameters:
+      - name: ccaa
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ES
+      - name: locale
+        in: query
+        required: false
+        schema:
+          type: string
+          default: es-ES
+      responses:
+        "400":
+          description: error
+        "500":
+          description: error
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TextCustomMap"
+components:
+  schemas:
+    UuidDto:
+      type: object
+      properties:
+        uuid:
+          type: string
+    CcaaKeyValueDto:
+      type: object
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+        web:
+          type: string
+        webName:
+          type: string
+        additionalInfo:
+          type: string
+    KeyValueDto:
+      type: object
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+    ApplicationVersionDto:
+      type: object
+      properties:
+        android:
+          $ref: "#/components/schemas/VersionDto"
+        ios:
+          $ref: "#/components/schemas/VersionDto"
+      description: Application version
+    AttenuationDurationThresholdsDto:
+      type: object
+      properties:
+        low:
+          type: integer
+          format: int32
+        medium:
+          type: integer
+          format: int32
+      description: Attenuation duration thresholds
+    AttenuationFactorDto:
+      type: object
+      properties:
+        low:
+          type: number
+          format: double
+        medium:
+          type: number
+          format: double
+      description: Attenuation factor
+    ExposureConfigurationDto:
+      type: object
+      properties:
+        transmission:
+          $ref: "#/components/schemas/RiskLevelDataDto"
+        duration:
+          $ref: "#/components/schemas/RiskLevelDataDto"
+        days:
+          $ref: "#/components/schemas/RiskLevelDataDto"
+        attenuation:
+          $ref: "#/components/schemas/RiskLevelDataDto"
+      description: Exposure configuration
+    RiskLevelDataDto:
+      type: object
+      properties:
+        riskLevelValue1:
+          type: integer
+          format: int32
+        riskLevelValue2:
+          type: integer
+          format: int32
+        riskLevelValue3:
+          type: integer
+          format: int32
+        riskLevelValue4:
+          type: integer
+          format: int32
+        riskLevelValue5:
+          type: integer
+          format: int32
+        riskLevelValue6:
+          type: integer
+          format: int32
+        riskLevelValue7:
+          type: integer
+          format: int32
+        riskLevelValue8:
+          type: integer
+          format: int32
+        riskLevelWeight:
+          type: number
+          format: double
+    RiskScoreClassificationDto:
+      type: object
+      properties:
+        label:
+          type: string
+        minValue:
+          type: integer
+          format: int32
+        maxValue:
+          type: integer
+          format: int32
+      description: Risk score classification
+    SettingsDto:
+      type: object
+      properties:
+        responseDate:
+          type: integer
+          description: Response date
+          format: int64
+        exposureConfiguration:
+          $ref: "#/components/schemas/ExposureConfigurationDto"
+        minRiskScore:
+          type: integer
+          description: Minimum risk score
+          format: int64
+        minDurationForExposure:
+          type: integer
+          description: Mininum duration for exposure
+          format: int64
+        riskScoreClassification:
+          type: array
+          description: Risk score classification
+          items:
+            $ref: "#/components/schemas/RiskScoreClassificationDto"
+        attenuationDurationThresholds:
+          $ref: "#/components/schemas/AttenuationDurationThresholdsDto"
+        attenuationFactor:
+          $ref: "#/components/schemas/AttenuationFactorDto"
+        applicationVersion:
+          $ref: "#/components/schemas/ApplicationVersionDto"
+        timeBetweenStates:
+          $ref: "#/components/schemas/TimeBetweenStatesDto"
+      description: Application settings
+    TimeBetweenStatesDto:
+      type: object
+      properties:
+        highRiskToLowRisk:
+          type: integer
+          description: "Time, in minutes, to change from high risk to low risk states"
+          format: int64
+        infectedToHealthy:
+          type: integer
+          description: "time, in minutes, to change from infected to healthy states"
+          format: int64
+      description: Time between states
+    VersionDto:
+      type: object
+      properties:
+        version:
+          type: string
+          description: Version identifier
+        compilation:
+          type: integer
+          description: Compilation identifier
+          format: int32
+        bundleUrl:
+          type: string
+          description: URL
+      description: Version information
+    TextCustomMap:
+      type: object
+      properties:
+        empty:
+          type: boolean
+      additionalProperties:
+        type: string

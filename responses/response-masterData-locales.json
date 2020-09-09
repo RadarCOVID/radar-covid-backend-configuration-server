@@ -1,0 +1,26 @@
+[
+  {
+    "id": "es-ES",
+    "description": "Castellano"
+  },
+  {
+    "id": "ca-ES",
+    "description": "Catalán"
+  },
+  {
+    "id": "eu-ES",
+    "description": "Euskera"
+  },
+  {
+    "id": "gl-ES",
+    "description": "Gallego"
+  },
+  {
+    "id": "en-US",
+    "description": "Inglés"
+  },
+  {
+    "id": "va-ES",
+    "description": "Valenciano"
+  }
+]
