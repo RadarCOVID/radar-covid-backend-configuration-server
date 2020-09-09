@@ -74,7 +74,7 @@ This project doesn't use either [Liquibase](https://www.liquibase.org/) or [Flyw
 Because of this, there are two scripts:
 
 - [`01-CONFIGURATION-DDL.sql`](./sql/01-CONFIGURATION-DDL.sql). Script to create the model.
-- [`data.sql`](./sql/data.sql). Script with inserts.
+- [`02-CONFIGURATION-DML.sql`](./sql/02-CONFIGURATION-DML.sql). Script with inserts.
 
 ### API Documentation
 
