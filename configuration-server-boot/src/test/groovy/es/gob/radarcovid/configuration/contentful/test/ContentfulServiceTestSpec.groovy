@@ -16,27 +16,29 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.ActiveProfiles
 import org.testcontainers.spock.Testcontainers
 import spock.lang.Specification
+import spock.lang.Unroll
 
 @SpringBootTest
-@ActiveProfiles("test")
+@ActiveProfiles('test')
 @Testcontainers
 class ContentfulServiceTestSpec extends Specification {
 
     @SpringBean
     ContentfulService contentfulService = Stub() {
-        getLocales("es-ES") >> [new KeyValueDto("es-ES", "Castellano")]
+        getLocales('es-ES') >> [new KeyValueDto('es-ES', 'Castellano')]
     }
 
-    def "get locales"(String locale, String id, String description) {
+    @Unroll
+    def 'get locales [#locale] with id [#id] and description [#description]'(String locale, String id, String description) {
         when:
         List<KeyValueDto> list = contentfulService.getLocales(locale)
 
         then:
-        list.get(0).id == id
-        list.get(0).description == description
+        list.first().id == id
+        list.first().description == description
 
         where:
         locale  | id      | description
-        "es-ES" | "es-ES" | "Castellano"
+        'es-ES' | 'es-ES' | 'Castellano'
     }
 }
