@@ -16,7 +16,7 @@ INSERT INTO CONFIGURATION.GENERAL_CONFIGURATION (NM_ID_GEN_CONFIGURATION_TYPE, N
 (4, 1, 'AndroidUrl', 'https://play.google.com/store/apps/details?id=es.gob.radarcovid', null, null),
 (4, 1, 'iOSVersion', '1.0.0', null, null),
 (4, 1, 'iOSCompilation', '1', null, null),
-(4, 1, 'iOSUrl', 'itms://itunes.apple.com/app/id1520443509', null, null),
+(4, 1, 'iOSUrl', 'itms-apps://itunes.apple.com/app/id1520443509', null, null),
 (5, 1, 'Min Duration For Exposure', '15', null, null),
 (6, 2, 'Attenuation Factor', null, '1.0', '0.5'),
 (7, 1, 'HighRiskToLowRisk', '20160', null, null),
