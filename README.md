@@ -97,6 +97,8 @@ You can get a copy [here](./configuration-server-api/api-docs.yaml).
 | `/settings` | Get application settings | | [`response-settings.json`](./responses/response-settings.json) |
 | `/texts?ccaa=<ccaa>[&locale=<locale>]` | Get texts by locale and Autonomous Community | `ccaa=ES`<br>`locale=es-ES` | Response with default parameters.<br>[`response-texts.json`](./responses/response-texts.json)
 
+NOTE: The sample responses are using default parameters so returns are in _castellano_. The real information is not in a JSON file; as we said before, we use Contentful to maintain the languages, texts, etc.
+
 ### Modules
 
 Configuration Service has four modules:
