@@ -12,6 +12,8 @@ services:
       DATABASE_USER: radarcovid 
       DATABASE_PSW: radarcovid
       DATABASE_SCHEMA: configuration
+    depends_on:
+      - postgres
     ports:
       - 8080:8080
     networks:
