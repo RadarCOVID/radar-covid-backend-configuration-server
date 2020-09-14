@@ -1,10 +1,12 @@
-version: '3'
+version: '3.8'
 
 services:
 
   backend:
     image: radarcovid/configuration
-    build: ./configuration-server-boot/target/docker
+    build:
+      context: ./configuration-server-boot/target/docker
+      dockerfile: Dockerfile
     environment:
       DATABASE_URL: jdbc:postgresql://postgres:5432/RADARCOVID?schema=configuration
       DATABASE_USER: radarcovid 
