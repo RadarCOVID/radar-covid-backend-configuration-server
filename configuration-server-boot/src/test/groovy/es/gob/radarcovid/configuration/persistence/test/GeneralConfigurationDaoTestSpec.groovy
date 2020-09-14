@@ -18,19 +18,19 @@ import spock.lang.Shared
 import spock.lang.Specification
 
 @SpringBootTest
-@ActiveProfiles("test")
+@ActiveProfiles('test')
 class GeneralConfigurationDaoTestSpec extends Specification {
 
     @Shared
-    PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer("postgres:12-alpine")
-            .withDatabaseName("RADARCOVID")
-            .withUsername("radarcovid")
-            .withPassword("radarcovid")
+    PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer('postgres:12-alpine')
+            .withDatabaseName('RADARCOVID')
+            .withUsername('radarcovid')
+            .withPassword('radarcovid')
 
     @Autowired
     GeneralConfigurationDao generalConfigurationDao
 
-    def "get general configuration"() {
+    def 'get general configuration'() {
 
         when:
         def settingsDto = generalConfigurationDao.getGeneralConfiguration()
