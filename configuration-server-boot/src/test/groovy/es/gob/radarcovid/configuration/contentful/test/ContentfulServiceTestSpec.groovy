@@ -14,12 +14,10 @@ import es.gob.radarcovid.configuration.contentful.ContentfulService
 import org.spockframework.spring.SpringBean
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.ActiveProfiles
-import org.testcontainers.spock.Testcontainers
 import spock.lang.Specification
 
 @SpringBootTest
 @ActiveProfiles("test")
-@Testcontainers
 class ContentfulServiceTestSpec extends Specification {
 
     @SpringBean

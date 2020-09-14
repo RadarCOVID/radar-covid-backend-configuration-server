@@ -14,13 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.ActiveProfiles
 import org.testcontainers.containers.PostgreSQLContainer
-import org.testcontainers.spock.Testcontainers
 import spock.lang.Shared
 import spock.lang.Specification
 
 @SpringBootTest
 @ActiveProfiles("test")
-@Testcontainers
 class GeneralConfigurationDaoTestSpec extends Specification {
 
     @Shared
