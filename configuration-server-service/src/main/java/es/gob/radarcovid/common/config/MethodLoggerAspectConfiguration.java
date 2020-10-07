@@ -21,7 +21,6 @@ import java.util.Arrays;
 
 /**
  * Aspecto encargado de trazar la información de los servicios implementados.
- *
  */
 @Configuration
 @ConditionalOnProperty(name = "application.log.enabled", havingValue = "true", matchIfMissing = true)
@@ -35,10 +34,10 @@ public class MethodLoggerAspectConfiguration {
 		public void logBefore(JoinPoint joinPoint) {
 			if (log.isDebugEnabled()) {
 				log.debug("   ************************* INIT SERVICE ******************************");
-				log.debug("   Service : Entering in Method :  " + joinPoint.getSignature().getDeclaringTypeName());
-				log.debug("   Service : Method :  " + joinPoint.getSignature().getName());
-				log.debug("   Service : Arguments :  " + Arrays.toString(joinPoint.getArgs()));
-				log.debug("   Service : Target class : " + joinPoint.getTarget().getClass().getName());
+				log.debug("   Service : Entering in Method :  {}", joinPoint.getSignature().getDeclaringTypeName());
+				log.debug("   Service : Method :  {}", joinPoint.getSignature().getName());
+				log.debug("   Service : Arguments :  {}", Arrays.toString(joinPoint.getArgs()));
+				log.debug("   Service : Target class : {}", joinPoint.getTarget().getClass().getName());
 			}
 		}
 
@@ -49,9 +48,9 @@ public class MethodLoggerAspectConfiguration {
 
 		@AfterThrowing(pointcut = "execution(@es.gob.radarcovid.common.annotation.Loggable * *..business.impl..*(..))", throwing = "exception")
 		public void logAfterThrowing(JoinPoint joinPoint, Throwable exception) {
-			log.error("   Service :  An exception has been thrown in " + joinPoint.getSignature().getName()
-							  + " ()");
-			log.error("   Service :  Cause : " + exception.getCause());
+			log.error("   Service :  An exception has been thrown in {} ()", joinPoint.getSignature().getName());
+			log.error("   Service :  Cause : {}", exception.getCause());
+			log.error("   Service :  Message : {}", exception.getMessage());
 			log.debug("   ************************** END SERVICE ******************************");
 		}
 
@@ -64,14 +63,13 @@ public class MethodLoggerAspectConfiguration {
 				String methodName = joinPoint.getSignature().getName();
 				Object result = joinPoint.proceed();
 				long elapsedTime = System.currentTimeMillis() - start;
-				log.debug("   Service :  " + className + "." + methodName + " ()" + " execution time : "
-								  + elapsedTime + " ms");
+				log.debug("   Service :  {}.{} () execution time : {} ms", className, methodName, elapsedTime);
 
 				return result;
 
 			} catch (IllegalArgumentException e) {
-				log.error("   Service :  Illegal argument " + Arrays.toString(joinPoint.getArgs()) + " in "
-								  + joinPoint.getSignature().getName() + "()");
+				log.error("   Service :  Illegal argument {} in {} ()", Arrays.toString(joinPoint.getArgs()),
+						joinPoint.getSignature().getName());
 				throw e;
 			}
 		}

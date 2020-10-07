@@ -47,23 +47,25 @@ public class ControllerLoggerAspectConfiguration {
 
             if (log.isDebugEnabled()) {
                 log.debug("************************* INIT CONTROLLER *********************************");
-                log.debug("Controller : Entering in Method :  " + joinPoint.getSignature().getDeclaringTypeName());
-                log.debug("Controller : Method :  " + joinPoint.getSignature().getName());
-                log.debug("Controller : Arguments :  " + Arrays.toString(joinPoint.getArgs()));
-                log.debug("Controller : Target class : " + joinPoint.getTarget().getClass().getName());
+                log.debug("Controller : Entering in Method :  {}", joinPoint.getSignature().getDeclaringTypeName());
+                log.debug("Controller : Method :  {}", joinPoint.getSignature().getName());
+                log.debug("Controller : Arguments :  {}", Arrays.toString(joinPoint.getArgs()));
+                log.debug("Controller : Target class : {}", joinPoint.getTarget().getClass().getName());
 
                 HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
                         .currentRequestAttributes()).getRequest();
                 if (null != request) {
                     log.debug("Controller : Start Header Section of request ");
-                    log.debug("Controller : Method Type : " + request.getMethod());
+                    log.debug("Controller : Method Type : {}", request.getMethod());
                     Enumeration<String> headerNames = request.getHeaderNames();
                     while (headerNames.hasMoreElements()) {
                         String headerName = headerNames.nextElement();
                         String headerValue = request.getHeader(headerName);
-                        log.debug("Controller : Header Name: " + headerName + " Header Value : " + headerValue);
+                        if (!headerName.startsWith("x-forwarded") ) {
+							log.debug("Controller : Header Name: {} Header Value : {}", headerName, headerValue);
+                        }
                     }
-                    log.debug("Controller : Request Path info :" + request.getServletPath());
+                    log.debug("Controller : Request Path info : {}", request.getServletPath());
                     log.debug("Controller : End Header Section of request ");
                 }
             }
@@ -76,9 +78,9 @@ public class ControllerLoggerAspectConfiguration {
 
         @AfterThrowing(pointcut = "execution(@es.gob.radarcovid.common.annotation.Loggable * *..controller..*(..))", throwing = "exception")
         public void logAfterThrowing(JoinPoint joinPoint, Throwable exception) {
-            log.error("Controller : An exception has been thrown in " + joinPoint.getSignature().getName()
-                              + " ()");
-            log.error("Controller : Cause : " + exception.getCause());
+            log.error("Controller : An exception has been thrown in {} ()", joinPoint.getSignature().getName());
+            log.error("Controller : Cause : {}", exception.getCause());
+            log.error("Controller : Message : {}", exception.getMessage());
             log.debug("************************* END CONTROLLER **********************************");
         }
 
@@ -91,20 +93,18 @@ public class ControllerLoggerAspectConfiguration {
                 String methodName = joinPoint.getSignature().getName();
                 Object result = joinPoint.proceed();
                 long elapsedTime = System.currentTimeMillis() - start;
-                log.debug("Controller : Controller " + className + "." + methodName + " ()"
-                                  + " execution time : " + elapsedTime + " ms");
+                log.debug("Controller : Controller {}.{} () execution time : {} ms", className, methodName, elapsedTime);
 
                 if ((null != result) && (result instanceof ResponseEntity) && log.isDebugEnabled()) {
 
                     Object dataReturned = ((ResponseEntity<?>) result).getBody();
                     HttpStatus returnedStatus = ((ResponseEntity<?>) result).getStatusCode();
                     HttpHeaders headers = ((ResponseEntity<?>) result).getHeaders();
-                    log.debug("Controller : Controller Return value :  <" + returnedStatus + ", " + dataReturned + ">");
+                    log.debug("Controller : Controller Return value :  <{}, {}>", returnedStatus, dataReturned);
                     log.debug("Controller : Start Header Section of response ");
                     if ((headers != null) && (!headers.isEmpty())) {
                         for (Map.Entry<String, List<String>> entry : headers.entrySet()) {
-                            log.debug(
-                                    "Controller : Header Name: " + entry.getKey() + " Header Value : " + entry.getValue());
+							log.debug("Controller : Header Name: {} Header Value : {}", entry.getKey(), entry.getValue());
                         }
                     }
                     log.debug("Controller : End Header Section of response ");
@@ -113,8 +113,8 @@ public class ControllerLoggerAspectConfiguration {
                 return result;
 
             } catch (IllegalArgumentException e) {
-                log.error("Controller : Illegal argument " + Arrays.toString(joinPoint.getArgs()) + " in "
-                                  + joinPoint.getSignature().getName() + "()");
+				log.error("Controller : Illegal argument {} in {} ()", Arrays.toString(joinPoint.getArgs()),
+						joinPoint.getSignature().getName());
                 throw e;
             }
         }
