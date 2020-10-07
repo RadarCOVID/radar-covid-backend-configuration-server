@@ -17,3 +17,11 @@ spring:
 
 application:
   log.enabled: false
+
+cloud:
+  aws:
+    region:
+      auto: false
+      static: eu-west-1
+    stack:
+      auto: false

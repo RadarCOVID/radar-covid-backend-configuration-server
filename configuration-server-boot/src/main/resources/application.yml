@@ -20,6 +20,8 @@ management:
   server.port: ${MANAGEMENT_PORT:8080}
 
 spring:
+  application:
+    name: configuration
   lifecycle:
     timeout-per-shutdown-phase: ${LIFECYCLE_TIMEOUT_PER_SHUTDOWN_PHASE:20s}
   datasource:
@@ -51,11 +53,23 @@ spring:
       name: ${SECURITY_USER_NAME:radar}
       password: ${SECURITY_USER_PASSWORD}
 
+cloud:
+  aws:
+    region:
+      auto: ${CLOUD.AWS.REGION.AUTO:false}
+      static: ${CLOUD.AWS.REGION.STATIC:eu-west-1}
+    stack:
+      auto: ${CLOUD.AWS.STACK.AUTO:false}
+
 contentful:
   url: ${SERVICES.CONTENTFUL.URL:https://preview.contentful.com/}
   space: ${SERVICES.CONTENTFUL.SPACE:}
   token: ${SERVICES.CONTENTFUL.TOKEN:}
-  environment: ${SERVICES.CONTENTFUL.ENVIRONMENT:master}
+  environment: ${SERVICES.CONTENTFUL.ENVIRONMENT:}
+  locales: ${SERVICES.CONTENTFUL.LOCALES:}
+  ccaa: ${SERVICES.CONTENTFUL.CCAA:}
+  alias:
+    enabled: ${SERVICES.CONTENTFUL.ALIAS.ENABLED:false}
 
 springdoc:
   api-docs:
@@ -73,6 +87,12 @@ application:
     description: '@project.description@'
     version: '@project.version@'
     terms-of-service: https://radarcovid.covid19.gob.es/terms-of-service/use-conditions.html
+  cache:
+    master-data:
+      locales: ${CACHE_MASTERDATA_LOCALES:1}
+      ccaa: ${CACHE_MASTERDATA_CCAA:1}
+      countries: ${CACHE_MASTERDATA_COUNTRIES:1}
+    texts: ${CACHE_TEXTS:1}
 
 logging:
   pattern:
@@ -80,3 +100,4 @@ logging:
   level:
     root: info
     es.gob.radarcovid: debug
+    com.amazonaws: error
