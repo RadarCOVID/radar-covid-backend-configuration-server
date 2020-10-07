@@ -11,8 +11,10 @@
 Configuration Service in terms of the Radar COVID project enables:
 
 - Getting exposition settings to be used by apps.
+- Getting internationalized texts.
 - Getting list of Autonomous Communities and their information.
 - Getting languages available: es-ES, ca-ES, en-US,...
+- Getting countries of interest available: DE, AT, DK, IT,...
 
 ## Prerequisites
 
@@ -38,15 +40,15 @@ These are the frameworks and tools used to develop the solution:
 To build the project, you need to run this command:
 
 ```shell
-mvn clean package -P<environment>
+mvn clean package -P <environment>
 ```
 
 Where `<environment>` has these possible values:
 
 - `local-env`. To run the application from local (eg, from IDE o from Maven using `mvn spring-boot:run`). It is the default profile, using [`application-local.yml`](./configuration-server-boot/src/main/resources/application-local.yml) configuration file.
 - `docker-env`. To run the application in a Docker container with `docker-compose`, using [`application-docker.yml`](./configuration-server-boot/src/main/resources/application-docker.yml) configuration file.
-- `pre-env`. To run the application in the Preproduction environment, using [`application-pre.yml`](./configuration-server-boot/src/main/resources/application-pre.yml) configuration file.
-- `pro-env`. To run the application in the Production environment, using [`application-pro.yml`](./configuration-server-boot/src/main/resources/application-pro.yml) configuration file.
+- `pre-env`. To run the application in the Preproduction environment. Preproduction environment properties are configured in the infrastructure.
+- `pro-env`. To run the application in the Production environment. Production environment properties are configured in the infrastructure
 
 All profiles will load the default [configuration](./configuration-server-boot/src/main/resources/application.yml).
 
@@ -83,19 +85,21 @@ Along with the application there comes with [OpenAPI Specification](https://www.
 ```shell
 <base-url>/openapi/api-docs
 ```
+You can download the YAML version in `/openapi/api-docs.yaml`
 
-If running in local, you can get the OpenAPI accessing http://localhost:8080/openapi/api-docs. You can download the YAML version in `/openapi/api-docs.yaml`.
-
-You can get a copy [here](./configuration-server-api/api-docs.yaml).
+If running in local, you can get:
+- OpenAPI: http://localhost:8080/openapi/api-docs
+- Swagger UI: http://localhost:8080/openapi/ui 
 
 #### Endpoints
 
 | Endpoint | Description | Default values | Sample response |
 | -------- | ----------- | -------------- | --------------- |
-| `/masterData/ccaa?locale=<locale>[&additionalInfo=<additionalInfo>]` | Get Autonomous Communities available | `locale=es-ES`<br>`additionalInfo=false` | Response with `additionalInfo=true`:<br>[`response-masterData-ccaa-additionalInfo.json`](./responses/response-masterData-ccaa-additionalInfo.json) |
-| `/masterData/locales?locale=<locale>` | Get locales available | `locale=es-ES` | [`response-masterData-locales.json`](./responses/response-masterData-locales.json) |
+| `/masterData/ccaa?locale=<locale>[&additionalInfo=<additionalInfo>&platform=<platform>&version=<platformVersion>]` | Get Autonomous Communities available | `locale=es-ES`<br>`additionalInfo=false` | Response with `additionalInfo=true`:<br>[`response-masterData-ccaa-additionalInfo.json`](./responses/response-masterData-ccaa-additionalInfo.json) |
+| `/masterData/locales?locale=<locale>[&platform=<platform>&version=<platformVersion>]` | Get locales available | `locale=es-ES` | [`response-masterData-locales.json`](./responses/response-masterData-locales.json) |
+| `/masterData/countries?locale=<locale>[&platform=<platform>&version=<platformVersion>]` | Get countries available | `locale=es-ES` | [`response-masterData-countries.json`](./responses/response-masterData-countries.json) |
 | `/settings` | Get application settings | | [`response-settings.json`](./responses/response-settings.json) |
-| `/texts?ccaa=<ccaa>[&locale=<locale>]` | Get texts by locale and Autonomous Community | `ccaa=ES`<br>`locale=es-ES` | Response with default parameters.<br>[`response-texts.json`](./responses/response-texts.json)
+| `/texts?ccaa=<ccaa>[&locale=<locale>&platform=<platform>&version=<platformVersion>]` | Get texts by locale and Autonomous Community | `ccaa=ES`<br>`locale=es-ES` | Response with default parameters.<br>[`response-texts.json`](./responses/response-texts.json)
 
 NOTE: The sample responses are using default parameters so returns are in _castellano_. The real information is not in a JSON file; as we said before, we use Contentful to maintain the languages, texts, etc.
 
@@ -105,7 +109,7 @@ Configuration Service has four modules:
 
 - `configuration-server-parent`. Parent Maven project to define dependencies and plugins.
 - `configuration-server-api`. [DTOs](https://en.wikipedia.org/wiki/Data_transfer_object) exposed.
-- `configuration-server-boot`. Main application, global configurations and properties. This module also has integration tests and Java architecture tests with ArchUnit:
+- `configuration-server-boot`. Main application, global configurations and properties. This module also has integration tests and Java architecture tests with ArchUnit.
 - `configuration-server-service`. Business and data layers.
 
 ## Support and Feedback
