@@ -28,14 +28,19 @@ public class MasterDataServiceImpl implements MasterDataService {
 
 	@Loggable
 	@Override
-	public List<KeyValueDto> getLocales(String locale) {
-		return contentfulService.getLocales(locale);
+	public List<KeyValueDto> getLocales(String locale, String platform, String version) {
+		return contentfulService.getLocales(locale, platform, version);
 	}
 	
 	@Loggable
 	@Override
-	public List<CcaaKeyValueDto> getAutonomousCommunities(String locale, boolean additionalInfo) {
-		return contentfulService.getAutonomousCommunities(locale, additionalInfo);
+	public List<CcaaKeyValueDto> getAutonomousCommunities(String locale, String platform, String version, boolean additionalInfo) {
+		return contentfulService.getAutonomousCommunities(locale, platform, version, additionalInfo);
 	}
-	
+
+	@Loggable
+	@Override
+	public List<KeyValueDto> getCountries(String locale, String platform, String version) {
+		return contentfulService.getCountries(locale, platform, version);
+	}
 }

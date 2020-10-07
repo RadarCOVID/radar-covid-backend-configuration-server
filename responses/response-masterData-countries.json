@@ -1,0 +1,42 @@
+[
+    {
+        "id": "DE",
+        "description": "Alemania"
+    },
+    {
+        "id": "AT",
+        "description": "Austria"
+    },
+    {
+        "id": "DK",
+        "description": "Dinamarca"
+    },
+    {
+        "id": "IT",
+        "description": "Italia"
+    },
+    {
+        "id": "NL",
+        "description": "Países Bajos"
+    },
+    {
+        "id": "CZ",
+        "description": "República Checa"
+    },
+    {
+        "id": "EE",
+        "description": "República de Estonia"
+    },
+    {
+        "id": "IE",
+        "description": "República de Irlanda"
+    },
+    {
+        "id": "LV",
+        "description": "República de Letonia"
+    },
+    {
+        "id": "PL",
+        "description": "República de Polonia"
+    }
+]

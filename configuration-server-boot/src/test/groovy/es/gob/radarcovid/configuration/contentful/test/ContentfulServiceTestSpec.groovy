@@ -23,20 +23,20 @@ class ContentfulServiceTestSpec extends Specification {
 
     @SpringBean
     ContentfulService contentfulService = Stub() {
-        getLocales('es-ES') >> [new KeyValueDto('es-ES', 'Castellano')]
+        getLocales('es-ES', 'iOS', '1.0.7') >> [new KeyValueDto('es-ES', 'Castellano')]
     }
 
     @Unroll
-    def 'get locales [#locale] with id [#id] and description [#description]'(String locale, String id, String description) {
+    def 'get locales [#locale] with id [#id] and description [#description]'(String locale, String platform, String version, String id, String description) {
         when:
-        List<KeyValueDto> list = contentfulService.getLocales(locale)
+        List<KeyValueDto> list = contentfulService.getLocales(locale, platform, version)
 
         then:
         list.first().id == id
         list.first().description == description
 
         where:
-        locale  | id      | description
-        'es-ES' | 'es-ES' | 'Castellano'
+        locale  | platform  | version   | id      | description
+        'es-ES' | 'iOS'     | '1.0.7'   | 'es-ES' | 'Castellano'
     }
 }

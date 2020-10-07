@@ -9,6 +9,8 @@
  */
 package es.gob.radarcovid.configuration.persistence.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -16,5 +18,13 @@ import es.gob.radarcovid.configuration.persistence.entity.GeneralConfigurationEn
 
 @Repository
 public interface GeneralConfigurationRepository extends JpaRepository<GeneralConfigurationEntity, Long> {
+
+    /**
+     * This method looks in the Database for an if a GeneralConfigurationEntity exists for the label.
+     *
+     * @param label value to search for
+     * @return Optional GeneralConfigurationEntity
+     */
+    Optional<GeneralConfigurationEntity> findByLabel(String label);
 
 }

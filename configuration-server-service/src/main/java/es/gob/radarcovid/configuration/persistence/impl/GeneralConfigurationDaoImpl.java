@@ -9,13 +9,13 @@
  */
 package es.gob.radarcovid.configuration.persistence.impl;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import es.gob.radarcovid.configuration.api.SettingsDto;
 import es.gob.radarcovid.configuration.persistence.GeneralConfigurationDao;
 import es.gob.radarcovid.configuration.persistence.mapper.GeneralConfigurationMapper;
 import es.gob.radarcovid.configuration.persistence.repository.GeneralConfigurationRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
@@ -29,5 +29,10 @@ public class GeneralConfigurationDaoImpl implements GeneralConfigurationDao {
 	@Override
 	public SettingsDto getGeneralConfiguration() {
 		return generalConfigurationMapper.entityToDto(generalConfigurationRepository.findAll());
+	}
+	
+	@Override
+	public String getValueBylabel(String label, String defaultValue) {
+		return generalConfigurationRepository.findByLabel(label).map(t -> t.getValue()).orElse(defaultValue);
 	}
 }

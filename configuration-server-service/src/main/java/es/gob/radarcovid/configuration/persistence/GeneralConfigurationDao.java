@@ -15,4 +15,5 @@ public interface GeneralConfigurationDao {
 
 	public SettingsDto getGeneralConfiguration();
 	
+	public String getValueBylabel(String label, String defaultValue);
 }
