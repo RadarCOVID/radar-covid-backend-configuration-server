@@ -3,6 +3,3 @@ spring.datasource:
   username: radarcovid
   password: radarcovid
 
-contentful:
-  url: https://preview.contentful.com/
-  environment: master

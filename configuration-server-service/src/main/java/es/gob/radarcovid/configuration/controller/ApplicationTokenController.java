@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.gob.radarcovid.common.annotation.Loggable;
+import es.gob.radarcovid.configuration.api.ErrorDto;
 import es.gob.radarcovid.configuration.api.UuidDto;
 import es.gob.radarcovid.configuration.business.ApplicationTokenService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -38,12 +39,14 @@ public class ApplicationTokenController {
     @Operation(summary = "Get application UUID token", description = "Get application UUID token", tags = { "token" })
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = UuidDto.class))),
-        @ApiResponse(responseCode = "400", description = "error", content = @Content(schema = @Schema(implementation = Void.class))),
-        @ApiResponse(responseCode = "500", description = "error message", content = @Content(schema = @Schema(implementation = Void.class)))
+        @ApiResponse(responseCode = "500", description = "error message", content = @Content(schema = @Schema(implementation = ErrorDto.class)))
     })	
     public ResponseEntity<UuidDto> getUuid() {
     	
-        return ResponseEntity.status(HttpStatus.OK).cacheControl(CacheControl.noStore()).body(service.getUuid());
+        return ResponseEntity
+        		.status(HttpStatus.OK)
+        		.cacheControl(CacheControl.noStore())
+        		.body(service.getUuid());
     }
     
 }
