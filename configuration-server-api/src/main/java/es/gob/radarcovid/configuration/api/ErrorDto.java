@@ -24,7 +24,6 @@ public class ErrorDto implements Serializable {
 
     public long timestamp;
     public int status;
-    public String error;
     public String message;
     public String path;
 }
