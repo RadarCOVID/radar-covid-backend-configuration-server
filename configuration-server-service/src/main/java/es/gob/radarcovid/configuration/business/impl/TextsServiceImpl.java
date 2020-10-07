@@ -25,8 +25,8 @@ public class TextsServiceImpl implements TextsService {
 
 	@Loggable
 	@Override
-	public TextCustomMap getTexts(String ccaa, String locale) {
-		return contentfulService.get(ccaa, locale);
+	public TextCustomMap getTexts(String ccaa, String locale, String platform, String version) {
+		return contentfulService.get(ccaa, locale, platform, version);
 	}
 
 }

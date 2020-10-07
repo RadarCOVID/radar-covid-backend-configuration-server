@@ -17,10 +17,12 @@ import es.gob.radarcovid.configuration.api.TextCustomMap;
 
 public interface ContentfulService {
 
-	TextCustomMap get(String ccaa, String locale);
+	TextCustomMap get(String ccaa, String locale, String platform, String version);
 
-	List<KeyValueDto> getLocales(String locale);
+	List<KeyValueDto> getLocales(String locale, String platform, String version);
 
-	List<CcaaKeyValueDto> getAutonomousCommunities(String locale, boolean additionalInfo);
+	List<CcaaKeyValueDto> getAutonomousCommunities(String locale, String platform, String version, boolean additionalInfo);
+
+	List<KeyValueDto> getCountries(String locale, String platform, String version);
 
 }

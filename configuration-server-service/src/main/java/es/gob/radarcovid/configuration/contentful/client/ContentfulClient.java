@@ -9,18 +9,20 @@
  */
 package es.gob.radarcovid.configuration.contentful.client;
 
-import java.util.Collection;
-
 import com.contentful.java.cda.CDAEntry;
 
+import java.util.Collection;
+
 public interface ContentfulClient {
+	
+	Collection<CDAEntry> get(String ccaa, String locale, String platformAlias);
 
-	Collection<CDAEntry> get(String ccaa, String locale);
+	Collection<CDAEntry> getLocales(String locale, String platformAlias);
 
-	Collection<CDAEntry> getLocales(String locale);
+	Collection<CDAEntry> getAutonomousCommunities(String locale, String platformAlias);
 
-	Collection<CDAEntry> getAutonomousCommunities(String locale);
+	Collection<CDAEntry> getAutonomousCommunitiesAdditionalInfo(String locale, String platformAlias);
 
-	Collection<CDAEntry> getAutonomousCommunitiesAdditionalInfo(String locale);
+	Collection<CDAEntry> getCountries(String locale, String platformAlias);
 
 }

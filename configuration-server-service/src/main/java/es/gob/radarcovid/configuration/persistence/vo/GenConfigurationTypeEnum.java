@@ -9,10 +9,10 @@
  */
 package es.gob.radarcovid.configuration.persistence.vo;
 
+import lombok.Getter;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import lombok.Getter;
 
 public enum GenConfigurationTypeEnum {
 
@@ -22,7 +22,8 @@ public enum GenConfigurationTypeEnum {
 	APPLICATION_VERSION(4),
 	MIN_DURATION_FOR_EXPOSURE(5),
 	ATTENUATION_FACTOR(6),
-	TIME_BETWEEN_STATES(7)
+	TIME_BETWEEN_STATES(7),
+    CONTENTFUL_ALIAS(8)
 	;
 
     private static final Map<Integer, GenConfigurationTypeEnum> genConfigurationTypeEnumByName;

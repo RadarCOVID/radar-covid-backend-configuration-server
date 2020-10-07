@@ -16,8 +16,9 @@ import es.gob.radarcovid.configuration.api.KeyValueDto;
 
 public interface MasterDataService {
 	
-	List<KeyValueDto> getLocales(String locale);
+	List<KeyValueDto> getLocales(String locale, String platform, String version);
 	
-	List<CcaaKeyValueDto> getAutonomousCommunities(String locale, boolean additionalInfo);
+	List<CcaaKeyValueDto> getAutonomousCommunities(String locale, String platform, String version, boolean additionalInfo);
 	
+	List<KeyValueDto> getCountries(String locale, String platform, String version);
 }
