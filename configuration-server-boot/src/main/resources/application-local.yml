@@ -1,5 +1,0 @@
-spring.datasource:
-  url: jdbc:postgresql://localhost:5432/RADARCOVID?schema=configuration
-  username: radarcovid
-  password: radarcovid
-

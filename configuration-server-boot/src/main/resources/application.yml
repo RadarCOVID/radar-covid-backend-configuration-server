@@ -27,9 +27,9 @@ spring:
   datasource:
     initialization-mode: never
     continue-on-error: false
-    url: ${DATABASE_URL}
-    username: ${DATABASE_USER}
-    password: ${DATABASE_PSW}
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/RADARCOVID?schema=configuration}
+    username: ${DATABASE_USER:radarcovid}
+    password: ${DATABASE_PSW:radarcovid}
     hikari:
       minimum-idle: ${DATABASE_MIN_IDLE:5}
       maximum-pool-size: ${DATABASE_MAX_IDLE:20}
