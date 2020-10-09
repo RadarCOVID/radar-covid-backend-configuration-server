@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.0.1.RELEASE] - 2020-10-09
+
 ### Added
 
 - Country endpoint, which returns a list of countries of interest.
@@ -11,6 +13,8 @@ All notable changes to this project will be documented in this file.
 - Management of aliases for access to different environments in Contentful.
 - Cache time properties in masters data and texts endpoints.
 - Added new records in GENERAL_CONFIGURATION table to store the Contentful aliases.
+- Added CODE_OF_CONDUCT.md file.
+- Added CHANGELOG.md file.
 
 ### Changed
 
@@ -20,8 +24,13 @@ All notable changes to this project will be documented in this file.
 
 - The properties files for Preproduction and Production environments have been removed, because these properties are stored encrypted in the infrastructure (AWS parameter stores).
 - Deleted Headers started with "x-forwarded", in server logs.
+- Deleted api-docs.yaml file. Yaml available through swagger endpoint.
 
-## [1.0.0] - 2020-09-15
+### Fixed
+
+- Fixed contact email in THIRD-PARTY-NOTICES file
+
+## [1.0.0.RELEASE] - 2020-09-15
 
 * Configuration Service. Initial version.
 
@@ -33,4 +42,6 @@ All notable changes to this project will be documented in this file.
 - Autonomous Community service, which returns the list of available autonomous communities.
 - Texts service, through which internationalized texts are obtained.
 
-[1.0.0]: https://github.com/RadarCOVID/radar-covid-backend-configuration-server/releases/tag/1.0.0.RELEASE
+[Unreleased]: https://github.com/RadarCOVID/radar-covid-backend-configuration-server/compare/1.0.1.RELEASE...develop
+[1.0.1.RELEASE]: https://github.com/RadarCOVID/radar-covid-backend-configuration-server/compare/1.0.0.RELEASE...1.0.1.RELEASE
+[1.0.0.RELEASE]: https://github.com/RadarCOVID/radar-covid-backend-configuration-server/releases/tag/1.0.0.RELEASE

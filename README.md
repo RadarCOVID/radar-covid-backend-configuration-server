@@ -45,8 +45,8 @@ mvn clean package -P <environment>
 
 Where `<environment>` has these possible values:
 
-- `local-env`. To run the application from local (eg, from IDE o from Maven using `mvn spring-boot:run`). It is the default profile, using [`application-local.yml`](./configuration-server-boot/src/main/resources/application-local.yml) configuration file.
-- `docker-env`. To run the application in a Docker container with `docker-compose`, using [`application-docker.yml`](./configuration-server-boot/src/main/resources/application-docker.yml) configuration file.
+- `local-env`. To run the application from local (eg, from IDE o from Maven using `mvn spring-boot:run`). It is the default profile, using [`application.yml`](./configuration-server-boot/src/main/resources/application.yml) configuration file. If any properties need to be modified, you can create application-local.yml configuration file.
+- `docker-env`. To run the application in a Docker container with `docker-compose`, using [`application.yml`](./configuration-server-boot/src/main/resources/application.yml) configuration file. If any properties need to be modified, you can create application-docker.yml configuration file.
 - `pre-env`. To run the application in the Preproduction environment. Preproduction environment properties are configured in the infrastructure.
 - `pro-env`. To run the application in the Production environment. Production environment properties are configured in the infrastructure
 
