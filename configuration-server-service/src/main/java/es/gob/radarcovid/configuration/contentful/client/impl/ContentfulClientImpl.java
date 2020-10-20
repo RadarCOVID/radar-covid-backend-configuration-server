@@ -37,6 +37,7 @@ public class ContentfulClientImpl implements ContentfulClient {
 	private static final String CCAA_FIELD = "fields.ccaa";
 	private static final String ID_FIELD = "fields.id";
 	private static final String DESCRIPTION_FIELD = "fields.description";
+	private static final String ORDER_FIELD = "fields.order";
 	private static final String KEY_FIELD = "fields.key";
 	private static final String VALUE_FIELD = "fields.value";
 
@@ -111,7 +112,7 @@ public class ContentfulClientImpl implements ContentfulClient {
 	                    .where(SEARCH_CATEGORY_IN_FIELD, CATEGORY_LOCALE)
 	                    .where(LOCALE, locale)
 	                    .select(ID_FIELD, DESCRIPTION_FIELD)
-	                    .orderBy(DESCRIPTION_FIELD)
+	                    .orderBy(ORDER_FIELD)
 	                    .limit(LIMIT)
 	                    .all()
 	                    .entries()
@@ -126,7 +127,7 @@ public class ContentfulClientImpl implements ContentfulClient {
 	                    .where(SEARCH_CATEGORY_IN_FIELD, CATEGORY_LOCALE)
 	                    .where(LOCALE, locale)
 	                    .select(ID_FIELD, DESCRIPTION_FIELD)
-	                    .orderBy(DESCRIPTION_FIELD)
+	                    .orderBy(ORDER_FIELD)
 	                    .limit(LIMIT)
 	                    .all()
 	                    .entries()
