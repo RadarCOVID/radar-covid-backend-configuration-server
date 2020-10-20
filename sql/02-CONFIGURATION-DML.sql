@@ -22,5 +22,6 @@ INSERT INTO CONFIGURATION.GENERAL_CONFIGURATION (NM_ID_GEN_CONFIGURATION_TYPE, N
 (7, 1, 'HighRiskToLowRisk', '20160', null, null),
 (7, 1, 'InfectedToHealthy', '43200', null, null),
 (8, 1, 'iOS_1.0.8', 'master', null, null),
-(8, 1, 'Android_1.0.7', 'master', null, null)
+(8, 1, 'Android_1.0.7', 'master', null, null),
+(9, 1, 'legalTermsVersion', '1.0.0', null, null)
 ;

@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+
+- New configuration general parameter: "legalTermsVersion", used to control the current version number of legal terms.
+- Set order in locale list (new order field).
+
+### Fixed
+
+- Fixed messages in aspects.
+
 ## [1.0.1.RELEASE] - 2020-10-09
 
 ### Added

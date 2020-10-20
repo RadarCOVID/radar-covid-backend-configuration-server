@@ -52,4 +52,7 @@ public class SettingsDto implements Serializable {
 	@Schema(description = "Time between states", required = false)
 	private TimeBetweenStatesDto timeBetweenStates;
 	
+	@Schema(description = "Legal terms version identifier", required = false)
+	private String legalTermsVersion;
+
 }

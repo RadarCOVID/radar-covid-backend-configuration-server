@@ -23,7 +23,8 @@ public enum GenConfigurationTypeEnum {
 	MIN_DURATION_FOR_EXPOSURE(5),
 	ATTENUATION_FACTOR(6),
 	TIME_BETWEEN_STATES(7),
-    CONTENTFUL_ALIAS(8)
+    CONTENTFUL_ALIAS(8),
+    LEGAL_TERMS_VERSION(9)
 	;
 
     private static final Map<Integer, GenConfigurationTypeEnum> genConfigurationTypeEnumByName;

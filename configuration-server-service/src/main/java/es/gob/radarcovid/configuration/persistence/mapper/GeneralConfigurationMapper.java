@@ -55,6 +55,9 @@ public interface GeneralConfigurationMapper {
 			target.setTimeBetweenStates(TimeBetweenStatesMapper.INSTANCE.entityToDto(source.stream()
 					.filter(t -> t.getGenConfigurationType() == GenConfigurationTypeEnum.TIME_BETWEEN_STATES)
 					.collect(Collectors.toList())));
+			target.setLegalTermsVersion(
+					source.stream().filter(t -> t.getGenConfigurationType() == GenConfigurationTypeEnum.LEGAL_TERMS_VERSION)
+							.map(t -> t.getValue()).findFirst().orElse(null));
 		}
 		return target;
 	}
