@@ -18,6 +18,12 @@ management:
   endpoint.health.probes.enabled: true
   endpoints.enabled-by-default: ${MANAGEMENT_ENDPOINTS_ENABLED:true}
   server.port: ${MANAGEMENT_PORT:8080}
+  metrics:
+    export:
+      cloudwatch:
+        enabled: true
+        namespace: configuration
+        batch-size: 20
 
 spring:
   application:
@@ -55,6 +61,9 @@ spring:
 
 cloud:
   aws:
+    credentials:
+      access-key: ${AWS_ACCESS_KEY_ID:}
+      secret-key: ${AWS_SECRET_KEY:}
     region:
       auto: ${CLOUD.AWS.REGION.AUTO:false}
       static: ${CLOUD.AWS.REGION.STATIC:eu-west-1}
