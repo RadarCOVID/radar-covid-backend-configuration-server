@@ -58,6 +58,12 @@ public interface GeneralConfigurationMapper {
 			target.setLegalTermsVersion(
 					source.stream().filter(t -> t.getGenConfigurationType() == GenConfigurationTypeEnum.LEGAL_TERMS_VERSION)
 							.map(t -> t.getValue()).findFirst().orElse(null));
+			target.setRadarCovidDownloadUrl(
+					source.stream().filter(t -> t.getGenConfigurationType() == GenConfigurationTypeEnum.RADAR_COVID_DOWNLOAD_URL)
+							.map(t -> t.getValue()).findFirst().orElse(null));
+			target.setNotificationReminder(
+					source.stream().filter(t -> t.getGenConfigurationType() == GenConfigurationTypeEnum.NOTIFICATION_REMINDER)
+							.map(t -> stringToLong(t.getValue())).findFirst().orElse(null));
 		}
 		return target;
 	}

@@ -55,4 +55,9 @@ public class SettingsDto implements Serializable {
 	@Schema(description = "Legal terms version identifier", required = false)
 	private String legalTermsVersion;
 
+	@Schema(description = "Radar COVID download link", required = false)
+	private String radarCovidDownloadUrl;
+
+	@Schema(description = "Notification reminder interval", required = false)
+	private Long notificationReminder;
 }

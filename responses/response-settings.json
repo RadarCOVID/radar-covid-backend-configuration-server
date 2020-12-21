@@ -83,5 +83,8 @@
   "timeBetweenStates": {
     "highRiskToLowRisk": 1440,
     "infectedToHealthy": 4320
-  }
+  },
+  "legalTermsVersion": "1.0.0",
+  "radarCovidDownloadUrl": "https://radarcovid.gob.es/home",
+  "notificationReminder": 1440
 }

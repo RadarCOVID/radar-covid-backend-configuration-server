@@ -24,7 +24,9 @@ public enum GenConfigurationTypeEnum {
 	ATTENUATION_FACTOR(6),
 	TIME_BETWEEN_STATES(7),
     CONTENTFUL_ALIAS(8),
-    LEGAL_TERMS_VERSION(9)
+    LEGAL_TERMS_VERSION(9),
+    RADAR_COVID_DOWNLOAD_URL(10),
+    NOTIFICATION_REMINDER(11)
 	;
 
     private static final Map<Integer, GenConfigurationTypeEnum> genConfigurationTypeEnumByName;
