@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>es.gob.radarcovid</groupId>
 		<artifactId>configuration-server-parent</artifactId>
-		<version>1.0.1.RELEASE</version>
+		<version>1.2.0.RELEASE</version>
 		<relativePath>../</relativePath> <!-- lookup parent from repository -->
 	</parent>
 
@@ -177,6 +177,10 @@
 				<configuration>
 					<outputDirectory>${project.build.directory}/docker</outputDirectory>
 					<classifier>exec</classifier>
+					<layers>
+						<enabled>true</enabled>
+						<configuration>${project.basedir}/src/main/docker/layers.xml</configuration>
+	        		</layers>
 				</configuration>
 				<executions>
 					<execution>
@@ -206,6 +210,9 @@
 								<resource>
 									<directory>${project.basedir}/src/main/docker</directory>
 									<filtering>true</filtering>
+									<excludes>
+										<exclude>**/layers.xml</exclude>
+									</excludes>
 								</resource>
 							</resources>
 							<delimiters>

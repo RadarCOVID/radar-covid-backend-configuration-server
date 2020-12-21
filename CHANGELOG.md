@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.2.0.RELEASE] - 2020-12-17
+
+### Added
+
+- Added [efficient Docker images with Spring Boot 2.3](https://spring.io/blog/2020/08/14/creating-efficient-docker-images-with-spring-boot-2-3).
+- New configuration general parameter: "radarCovidDownloadUrl", used to provide the application download URL.
+- New configuration general parameter: "notificationReminder", used to provide notification reminder interval in minutes.
+
+## [1.1.0.RELEASE] - 2020-10-28
+
 ### Added
 
 - New configuration general parameter: "legalTermsVersion", used to control the current version number of legal terms.
@@ -51,6 +61,8 @@ All notable changes to this project will be documented in this file.
 - Autonomous Community service, which returns the list of available autonomous communities.
 - Texts service, through which internationalized texts are obtained.
 
-[Unreleased]: https://github.com/RadarCOVID/radar-covid-backend-configuration-server/compare/1.0.1.RELEASE...develop
+[Unreleased]: https://github.com/RadarCOVID/radar-covid-backend-configuration-server/compare/1.2.0.RELEASE...develop
+[1.2.0.RELEASE]: https://github.com/RadarCOVID/radar-covid-backend-configuration-server/compare/1.1.0.RELEASE...1.2.0.RELEASE
+[1.1.0.RELEASE]: https://github.com/RadarCOVID/radar-covid-backend-configuration-server/compare/1.0.1.RELEASE...1.1.0.RELEASE
 [1.0.1.RELEASE]: https://github.com/RadarCOVID/radar-covid-backend-configuration-server/compare/1.0.0.RELEASE...1.0.1.RELEASE
 [1.0.0.RELEASE]: https://github.com/RadarCOVID/radar-covid-backend-configuration-server/releases/tag/1.0.0.RELEASE
