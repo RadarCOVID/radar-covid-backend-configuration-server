@@ -26,7 +26,8 @@ public enum GenConfigurationTypeEnum {
     CONTENTFUL_ALIAS(8),
     LEGAL_TERMS_VERSION(9),
     RADAR_COVID_DOWNLOAD_URL(10),
-    NOTIFICATION_REMINDER(11)
+    NOTIFICATION_REMINDER(11),
+    TIME_BETWEEN_KPI(12)
 	;
 
     private static final Map<Integer, GenConfigurationTypeEnum> genConfigurationTypeEnumByName;

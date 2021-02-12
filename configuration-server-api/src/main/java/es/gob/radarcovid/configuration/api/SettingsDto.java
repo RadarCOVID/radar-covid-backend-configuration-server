@@ -60,4 +60,8 @@ public class SettingsDto implements Serializable {
 
 	@Schema(description = "Notification reminder interval", required = false)
 	private Long notificationReminder;
+
+	@Schema(description = "Time to elapse between KPI submission", required = false)
+	private Long timeBetweenKpi;
+
 }

@@ -13,7 +13,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import org.springframework.util.CollectionUtils;
@@ -64,12 +64,15 @@ public interface GeneralConfigurationMapper {
 			target.setNotificationReminder(
 					source.stream().filter(t -> t.getGenConfigurationType() == GenConfigurationTypeEnum.NOTIFICATION_REMINDER)
 							.map(t -> stringToLong(t.getValue())).findFirst().orElse(null));
+			target.setTimeBetweenKpi(
+					source.stream().filter(t -> t.getGenConfigurationType() == GenConfigurationTypeEnum.TIME_BETWEEN_KPI)
+							.map(t -> stringToLong(t.getValue())).findFirst().orElse(null));
 		}
 		return target;
 	}
 
 	private Long stringToLong(String string) {
-		return (StringUtils.isNumeric(string)) ? Long.parseLong(string) : null;
+		return (NumberUtils.isCreatable(string)) ? Long.parseLong(string) : null;
 	}
 
 }

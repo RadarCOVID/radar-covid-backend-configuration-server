@@ -25,5 +25,6 @@ INSERT INTO CONFIGURATION.GENERAL_CONFIGURATION (NM_ID_GEN_CONFIGURATION_TYPE, N
 (8, 1, 'Android_1.0.7', 'master', null, null),
 (9, 1, 'legalTermsVersion', '1.0.0', null, null),
 (10, 1, 'radarCovidDownloadUrl', 'https://radarcovid.gob.es/home', null, null),
-(11, 1, 'notificationReminder', '1440', null, null)
+(11, 1, 'notificationReminder', '1440', null, null),
+(12, 1, 'timeBetweenKpi', '1440', null, null)
 ;
