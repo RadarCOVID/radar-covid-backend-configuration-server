@@ -2,11 +2,10 @@
 
 All notable changes to this project will be documented in this file. 
 
-## [Unreleased]
 
 ## [1.3.0.RELEASE] - 2021-02-17
 
-### Added
+### Added
 
 - New configuration general parameter: "timeBetweenKpi", used to control the delivery time between kpi metrics.
 
@@ -16,7 +15,7 @@ All notable changes to this project will be documented in this file.
 
 ## [1.2.0.RELEASE] - 2020-12-17
 
-### Added
+### Added
 
 - Added [efficient Docker images with Spring Boot 2.3](https://spring.io/blog/2020/08/14/creating-efficient-docker-images-with-spring-boot-2-3).
 - New configuration general parameter: "radarCovidDownloadUrl", used to provide the application download URL.
