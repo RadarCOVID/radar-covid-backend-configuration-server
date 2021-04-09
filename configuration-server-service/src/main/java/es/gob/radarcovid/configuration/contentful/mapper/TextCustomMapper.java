@@ -25,8 +25,12 @@ import es.gob.radarcovid.configuration.api.TextCustomMap;
 @Slf4j
 public abstract class TextCustomMapper {
 
-	private static final Pattern PATTERN1 = Pattern.compile("__([^\"]+)__");
-    private static final Pattern PATTERN2 = Pattern.compile("\\*([^\"]+)\\*");
+	private static final String REGEX1 = "(?<!\\\\)__([^\"]+)(?<!\\\\)__";
+	private static final String REGEX2 = "(?<!\\\\)\\*([^\"]+)(?<!\\\\)\\*";
+	private static final String REGEX3 = "\\\\([_\\*])";
+	
+	private static final Pattern PATTERN1 = Pattern.compile(REGEX1);
+    private static final Pattern PATTERN2 = Pattern.compile(REGEX2);
 
     public TextCustomMap entityToDto(Collection<CDAEntry> source) {
         TextCustomMap result = new TextCustomMap();
@@ -48,15 +52,15 @@ public abstract class TextCustomMapper {
         if (!StringUtils.isEmpty(text)) {
             Matcher m = PATTERN1.matcher(text);
             while (m.find()) {
-                text = text.replaceFirst("__([^\"]+)__", "<b>$1</b>");
+                text = text.replaceFirst(REGEX1, "<b>$1</b>");
                 m = PATTERN1.matcher(text);
             }
             m = PATTERN2.matcher(text);
             while (m.find()) {
-                text = text.replaceFirst("\\*([^\"]+)\\*", "<i>$1</i>");
+                text = text.replaceFirst(REGEX2, "<i>$1</i>");
                 m = PATTERN2.matcher(text);
             }
-            result = text;
+            result = text.replaceAll(REGEX3, "$1");
         }
         return result;
     }

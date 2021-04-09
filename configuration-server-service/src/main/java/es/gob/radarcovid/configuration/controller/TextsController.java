@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.CacheControl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,6 +35,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("/texts")
+@CrossOrigin(origins = { "https://test-radar.covid19.gob.es", "https://radarcovid.gob.es" })
 @RequiredArgsConstructor
 @Slf4j
 public class TextsController {
@@ -41,6 +43,7 @@ public class TextsController {
     private final TextsService service;
     private static final String DEFAULT_CCAA = "ES";
 	private static final String DEFAULT_LOCALE = "es-ES";
+	private static final String DEFAULT_APPLICATION = "ALL";
 
 	@Value("${application.cache.texts:1}")
 	private long cacheTexts;
@@ -57,13 +60,14 @@ public class TextsController {
 	public ResponseEntity<TextCustomMap> getTexts(
 			@RequestParam(value = "ccaa", required = false, defaultValue = DEFAULT_CCAA) final String ccaa,
 			@RequestParam(value = "locale", required = false, defaultValue = DEFAULT_LOCALE) final String locale,
+			@RequestParam(value = "application", required = false, defaultValue = DEFAULT_APPLICATION) final String application,
 			@RequestParam(value = "platform", required = false) final String platform,
 			@RequestParam(value = "version", required = false) final String version) {
 
 		return ResponseEntity
 				.status(HttpStatus.OK)
 				.cacheControl(CacheControl.maxAge(cacheTexts, TimeUnit.HOURS))
-				.body(this.service.getTexts(ccaa, locale, platform, version));
+				.body(this.service.getTexts(ccaa, locale, application, platform, version));
 	}
     
 }

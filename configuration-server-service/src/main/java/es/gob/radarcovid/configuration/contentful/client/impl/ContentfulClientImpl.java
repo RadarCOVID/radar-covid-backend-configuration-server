@@ -32,9 +32,11 @@ public class ContentfulClientImpl implements ContentfulClient {
 
 	private static final String TEXT_CONTENT_TYPE = "textType";
 	private static final String MASTER_DATA_CONTENT_TYPE = "masterDataType";
+	private static final String WEB_TEXT_CONTENT_TYPE = "webTextType";
 
 	private static final String FIELDS = "fields";
 	private static final String CCAA_FIELD = "fields.ccaa";
+	private static final String APPLICATION_FIELD = "fields.application";
 	private static final String ID_FIELD = "fields.id";
 	private static final String DESCRIPTION_FIELD = "fields.description";
 	private static final String ORDER_FIELD = "fields.order";
@@ -95,6 +97,42 @@ public class ContentfulClientImpl implements ContentfulClient {
 		                .values();
 			} catch (CDAHttpException cdae) {
 				log.error("Contentful error for \"{}\" alias, \"{}\" ccaa and \"{}\" locale", platformAlias, ccaa, locale);
+				throw new ConfigurationServerException(HttpStatus.BAD_REQUEST, "Error in Contentful request");
+			}
+    	}
+    	return result;
+    }
+    
+    @Override
+	public Collection<CDAEntry> getWeb(String locale, String application, String platformAlias) {
+    	Collection<CDAEntry> result = null;
+    	log.debug("Get web texts for environment \"{}\"", platformAlias);
+    	try {
+        	result = this.getClient(platformAlias)
+		                .fetch(CDAEntry.class)
+		                .withContentType(WEB_TEXT_CONTENT_TYPE)
+		                .where(APPLICATION_FIELD, application)
+		                .where(LOCALE, locale)
+		                .select(FIELDS)
+		                .limit(LIMIT)
+		                .all()
+		                .entries()
+		                .values();
+    	} catch (CDAHttpException e) {
+			log.warn("Environment \"{}\" does not exist or is not enabled in Contentful. Get texts for environment \"{}\"",
+					platformAlias, contentfulEnvironment);
+			try {
+	        	result = client
+		                .fetch(CDAEntry.class)
+		                .withContentType(WEB_TEXT_CONTENT_TYPE)
+		                .where(LOCALE, locale)
+		                .select(FIELDS)
+		                .limit(LIMIT)
+		                .all()
+		                .entries()
+		                .values();
+			} catch (CDAHttpException cdae) {
+				log.error("Contentful error for \"{}\" alias and \"{}\" locale", platformAlias, locale);
 				throw new ConfigurationServerException(HttpStatus.BAD_REQUEST, "Error in Contentful request");
 			}
     	}

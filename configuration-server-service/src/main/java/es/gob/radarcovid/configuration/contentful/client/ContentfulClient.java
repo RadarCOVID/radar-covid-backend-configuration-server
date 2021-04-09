@@ -16,6 +16,8 @@ import java.util.Collection;
 public interface ContentfulClient {
 	
 	Collection<CDAEntry> get(String ccaa, String locale, String platformAlias);
+	
+	Collection<CDAEntry> getWeb(String locale, String application, String platformAlias);
 
 	Collection<CDAEntry> getLocales(String locale, String platformAlias);
 

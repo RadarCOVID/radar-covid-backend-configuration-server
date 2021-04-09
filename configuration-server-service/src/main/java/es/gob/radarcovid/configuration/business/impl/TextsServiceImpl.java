@@ -9,6 +9,7 @@
  */
 package es.gob.radarcovid.configuration.business.impl;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import es.gob.radarcovid.common.annotation.Loggable;
@@ -22,10 +23,16 @@ import lombok.RequiredArgsConstructor;
 public class TextsServiceImpl implements TextsService {
 
 	private final ContentfulService contentfulService;
+	
+    @Value("${application.platform.web}")
+    private String platformWeb;
 
 	@Loggable
 	@Override
-	public TextCustomMap getTexts(String ccaa, String locale, String platform, String version) {
+	public TextCustomMap getTexts(String ccaa, String locale, String application, String platform, String version) {
+		if (platformWeb.equals(platform)) {
+			return contentfulService.getWeb(locale, application, platform, version);
+		}
 		return contentfulService.get(ccaa, locale, platform, version);
 	}
 

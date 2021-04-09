@@ -80,6 +80,7 @@ contentful:
   environment: ${SERVICES.CONTENTFUL.ENVIRONMENT:}
   locales: ${SERVICES.CONTENTFUL.LOCALES:}
   ccaa: ${SERVICES.CONTENTFUL.CCAA:}
+  applications: ${SERVICES.CONTENTFUL.APPLICATIONS:}
   alias:
     enabled: ${SERVICES.CONTENTFUL.ALIAS.ENABLED:false}
 
@@ -105,6 +106,7 @@ application:
       ccaa: ${CACHE_MASTERDATA_CCAA:1}
       countries: ${CACHE_MASTERDATA_COUNTRIES:1}
     texts: ${CACHE_TEXTS:1}
+  platform.web: ${PLATFORM_WEB:Web}
 
 logging:
   pattern:

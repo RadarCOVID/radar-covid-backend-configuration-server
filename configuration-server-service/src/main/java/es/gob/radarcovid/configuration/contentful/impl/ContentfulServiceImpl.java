@@ -51,6 +51,8 @@ public class ContentfulServiceImpl implements ContentfulService {
     private List<String> contentfulLocales;
     @Value("#{'${contentful.ccaa}'.split(',')}")
     private List<String> contentfulCCAA;
+    @Value("#{'${contentful.applications}'.split(',')}")
+    private List<String> contentfulApplications;
     
 
 	@Loggable
@@ -59,6 +61,14 @@ public class ContentfulServiceImpl implements ContentfulService {
 		this.checkCCAA(ccaa);
 		this.checkLocale(locale);
 		return textCustomMapper.entityToDto(contentful.get(ccaa, locale, this.getPlatformAlias(platform, version)));
+	}
+	
+	@Loggable
+	@Override
+	public TextCustomMap getWeb(String locale, String application, String platform, String version) {
+		this.checkLocale(locale);
+		this.checkApplication(application);
+		return textCustomMapper.entityToDto(contentful.getWeb(locale, application, this.getPlatformAlias(platform, version)));
 	}
 
 	@Loggable
@@ -120,6 +130,13 @@ public class ContentfulServiceImpl implements ContentfulService {
 		if (!contentfulLocales.contains(locale)) {
 			throw new ConfigurationServerException(HttpStatus.BAD_REQUEST,
 					new StringBuffer("Locale ").append(locale).append(" is not valid").toString());
+		}
+	}
+	
+	private void checkApplication(String application) {
+		if (!contentfulApplications.contains(application)) {
+			throw new ConfigurationServerException(HttpStatus.BAD_REQUEST,
+					new StringBuffer("Application ").append(application).append(" is not valid").toString());
 		}
 	}
 }

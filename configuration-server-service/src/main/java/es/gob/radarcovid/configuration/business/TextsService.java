@@ -13,6 +13,6 @@ import es.gob.radarcovid.configuration.api.TextCustomMap;
 
 public interface TextsService {
 	
-	TextCustomMap getTexts(String ccaa, String locale, String platform, String version);
+	TextCustomMap getTexts(String ccaa, String locale, String application, String platform, String version);
 	
 }
