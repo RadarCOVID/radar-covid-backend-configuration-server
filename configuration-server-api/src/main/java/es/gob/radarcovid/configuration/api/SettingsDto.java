@@ -63,5 +63,8 @@ public class SettingsDto implements Serializable {
 
 	@Schema(description = "Time to elapse between KPI submission", required = false)
 	private Long timeBetweenKpi;
+	
+	@Schema(description = "Venue configuration", required = false)
+	private VenueConfigurationDto venueConfiguration;
 
 }

@@ -67,6 +67,10 @@ public interface GeneralConfigurationMapper {
 			target.setTimeBetweenKpi(
 					source.stream().filter(t -> t.getGenConfigurationType() == GenConfigurationTypeEnum.TIME_BETWEEN_KPI)
 							.map(t -> stringToLong(t.getValue())).findFirst().orElse(null));
+			target.setVenueConfiguration(VenueConfigurationMapper.INSTANCE.entityToDto(source
+					.stream()
+					.filter(t -> t.getGenConfigurationType() == GenConfigurationTypeEnum.VENUE_CONFIGURATION)
+					.collect(Collectors.toList())));
 		}
 		return target;
 	}
