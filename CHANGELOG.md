@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. 
 
+## [1.3.1.RELEASE] - 2021-12-17
+
+### Changed
+
+- Updated log4j2 version to 2.15.0
+- Updated testcontainers version to 1.16.2
 
 ## [1.3.0.RELEASE] - 2021-02-17
 
@@ -70,7 +76,8 @@ All notable changes to this project will be documented in this file.
 - Autonomous Community service, which returns the list of available autonomous communities.
 - Texts service, through which internationalized texts are obtained.
 
-[Unreleased]: https://github.com/RadarCOVID/radar-covid-backend-configuration-server/compare/1.3.0.RELEASE...develop
+[Unreleased]: https://github.com/RadarCOVID/radar-covid-backend-configuration-server/compare/1.3.1.RELEASE...develop
+[1.3.1.RELEASE]: https://github.com/RadarCOVID/radar-covid-backend-configuration-server/compare/1.3.0.RELEASE...1.3.1.RELEASE
 [1.3.0.RELEASE]: https://github.com/RadarCOVID/radar-covid-backend-configuration-server/compare/1.2.0.RELEASE...1.3.0.RELEASE
 [1.2.0.RELEASE]: https://github.com/RadarCOVID/radar-covid-backend-configuration-server/compare/1.1.0.RELEASE...1.2.0.RELEASE
 [1.1.0.RELEASE]: https://github.com/RadarCOVID/radar-covid-backend-configuration-server/compare/1.0.1.RELEASE...1.1.0.RELEASE
